@@ -20,7 +20,6 @@ namespace BigSchool.Models
         [Required]
         public byte CategoryId { get; set; }
 
-
     }
     public class Category
     {
@@ -29,4 +28,6 @@ namespace BigSchool.Models
         [StringLength(255)]
         public string Name { get; set; }
     }
+
+
 }
