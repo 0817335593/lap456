@@ -9,6 +9,9 @@ namespace BigSchool.ViewModels
 {
     public class CourseViewModel
     {
+        internal string Heading;
+        internal int Id;
+
         [Required]
         public string Place { get; set; }
         [Required]

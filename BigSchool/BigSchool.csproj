@@ -178,6 +178,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\CoursesController.cs" />
     <Compile Include="Controllers\ApplicationDbContext_dbContext.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
@@ -212,6 +213,10 @@
     <Compile Include="Migrations\202107120630297_AddFollowingsTable.cs" />
     <Compile Include="Migrations\202107120630297_AddFollowingsTable.Designer.cs">
       <DependentUpon>202107120630297_AddFollowingsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202107120943152_AddIsCanceledColumnToCourse.cs" />
+    <Compile Include="Migrations\202107120943152_AddIsCanceledColumnToCourse.Designer.cs">
+      <DependentUpon>202107120943152_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -286,9 +291,10 @@
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
     <Content Include="Views\CourseViewModel.cshtml" />
+    <Content Include="Views\Courses\Mine.cshtml" />
+    <Content Include="Views\Courses\Attending.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -326,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107120630297_AddFollowingsTable.resx">
       <DependentUpon>202107120630297_AddFollowingsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107120943152_AddIsCanceledColumnToCourse.resx">
+      <DependentUpon>202107120943152_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

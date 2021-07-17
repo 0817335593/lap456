@@ -1,16 +1,17 @@
-﻿@model BigSchool.ViewModels.CoursesViewModel
-
+﻿
+@model BigSchool.ViewModels.CoursesViewModel
 
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Attending";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Attending</h2>
 
+
 <ul claas="course">
-     @foreach (var course in Model.UpcommingCourse)
+    @foreach (var course in Model.UpcommingCourse)
     {
         <li>
             <div class="date">
@@ -34,7 +35,7 @@
                     @course.Category.Name
                 </span>
                 @if (Model.ShowAction)
-                { 
+                {
                     <button data-course-id="@course.Id" class=" btn btn-default btn-sm js-toggle-attendance">Going?</button>
                 }
             </div>
@@ -69,11 +70,11 @@
                         alert("Something failed");
                     });
             });
-                        
+
         });
-        
+
     </script>
-    }
+}
 
 
 <div class="jumbotron">

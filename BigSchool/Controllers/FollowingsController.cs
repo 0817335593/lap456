@@ -10,27 +10,28 @@ using Microsoft.AspNet.Identity;
 
 namespace BigSchool.Controllers
 {
-    public class FollowingsController : ApiController
+    [Authorize]
+    public class FollowingController : ApiController
     {
-        private readonly ApplicationDbContext _dbContext;
-        public FollowingsController()
+        private ApplicationDbContext _dbContext;
+        public FollowingController()
         {
             _dbContext = new ApplicationDbContext();
-
         }
         [HttpPost]
-        public IHttpActionResult Follow(FollowingDto followingDto)
+        public IHttpActionResult Attend(AttendanceDto attendanceDto)
         {
             var userId = User.Identity.GetUserId();
-            if (_dbContext.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId))
-                return BadRequest("Following already exists!");
-            var folowing = new Following
+            if (_dbContext.Attendances.Any(a => a.AttendeeId == userId && a.CourseId == attendanceDto.CourseId))
+                return BadRequest("The Attendance already exists");
+            var attendance = new Attendance
             {
-                FollowerId = userId,
-                FolloweeId = followingDto.FolloweeId
+                CourseId = attendanceDto.CourseId,
+                AttendeeId = userId
             };
-            _dbContext.Followings.Add(folowing);
+            _dbContext.Attendances.Add(attendance);
             _dbContext.SaveChanges();
+
             return Ok();
         }
     }
